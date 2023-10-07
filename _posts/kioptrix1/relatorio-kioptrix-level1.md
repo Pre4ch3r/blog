@@ -1,60 +1,15 @@
 ---
-title: "Relatório de Pentest"
-author: ["Pr3ach3r@mail.com", "OSID: 144000"]
-date: "2023-08-07"
-subject: "Relatório"
-keywords: [Markdown, Example]
-subtitle: "Empresa Kioptrix -level 1"
-lang: "br","en"
-titlepage: true
-titlepage-color: "DC143C"
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "FFFFFF"
-titlepage-rule-height: 2
-book: true
-classoption: oneside
-code-block-font-size: \scriptsize
+title: "Vulnhub Kioptrix level 1"
+author: ["Pr3ach3r"]
+date: "2023-10-06"
 ---
-# Relatório de Pentest da empresa Kioptrix-level-1 ltda
+# Kioptrix level 1 Walkthrough
 
 ## Introdução
 
-Em vista dos perigos que rondam o mundo cibernético, empresas no mundo todo tem mudado a consciência e a forma de trabalhar, visando a segurança dos dados e integridade de seus serviços. Como hacker freelancer e profissional de Pentest, desejo que esses objetivos sejam alcançados. É por isso que em agosto de 2023 fui contratado para prestar serviços de Pentest para a empresa Kioptrix-level1 ltda. 
-
-## Objetivo
-
-O objetivo deste pentest, conforme poderá ser visto mais adiante neste relatório, é encontrar problemas relacionados à infraestrutura do domínio da empresa Kioptrix. Também, sugeri soluções que visam sanar os problemas encontrados.
-
-## Escopo
-
-Como escopo, foi definido que o Pentest seria do tipo **blackbox**, ou seja, apenas o ip do domínio da empresa seria previamente divulgado. A idéia é simular um ataque real, vindo de fora da rede interna da empresa.
-
-# Sumario
-
-O pentest resume-se em:
-
-- encontrar serviços que podem conter falhas de segurança
-- explorar as falhas nesses serviços e obter acesso remoto ao servidor
-- escalar privilégios de usuário do servidor, para alcançar o admin do sistema "root"
-
-## Recomendações
-
-Recomendo que se atualize todos os serviços usados nesse domínio. E também que se crie regras para que se façam patchs de segurança com regularidade.
-
-# Metodologias
-
-A metodologia usada foi a Pte - Penetration Testing Execution Standard. Ela consiste nos seguintes passos:
-
-1. Coleta de Informações
-2. Enumeração de serviços
-3. Exploração
-4. Pós exploração
-
-A seguir, vemos o resultado obtido após todos os testes realizados:
-
-## Coleta de informações
-
-Nessa fase, obtemos o máximo de informações possíveis para realizar um ataque. No entanto, visto ser um pentest blackbox, realizei o ataque tendo apenas o ip da empresa.
+Esta foi minha primeiríssima máquina que consegui obter o root. O processo foi doloroso, porém, com alguma pesquisa é possível obter root facilmente.
+Essa máquina é considerada fácil e o processo é bem linear.
+A seguir, resumo o passo a passo para obter o root do sistema:
 
 **IP da empresa**
 
@@ -257,19 +212,12 @@ Na gravura a seguir pode-se ver como usar a ferramenta para explorar a falha e o
 
 ![imagem3](kio3.png)
 
-
 ## Pós exploração
 
 Não foi necessário nenhum passo adicional, visto já obter acesso root já na exploração.
 
-## Limpando a casa
-
-Após todos os testes, a senha do root foi alterada pelo sysadmin, os logs foram apagados e vestigios da invasão deletados.
-
 # Considerações finais
 
-Após fazer esse primeiro Pentest, recomendo que se crie uma política de atualizações regulares. Programas muito obsoletos possuem exploits públicos, que podem facilmente ser usados por qualquer um com o conhecimento básico na área de segurança cibernética. Espero que essa recomendação ajude a empresa Kioptrix a criar um ambiente seguro, não só para seus funcionários, mas também para seus clientes.
+Como qualquer coisa na vida, o começo é sempre doloroso, porém com o tempo tudo vai ficando natural e se torna mais fácil. Nessa primeira máquina aprendi a fazer pesquisa no google de uma maneira mais focada nas vulnerabilidades. E também aprendi que é prerigoso deixar um serviço desatualizado rodando no servidor.
 
-**Pr3ach3r**
 
-pr3ach3r@mail.com
