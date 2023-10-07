@@ -19,7 +19,7 @@ A seguir, resumo o passo a passo para obter o root do sistema:
 
 Nessa fase fiz uma varredura usando a ferramenta NMAP, muito usada para fazer varreduras de portas. Note que o serviço na porta 139 parece ser o mais vulnerável.
 
-![imagem1](kio1.png)
+![imagem1](https://github.com/Pre4ch3r/blog/blob/master/_posts/kioptrix1/kio1.png?raw=true)
 
 
 Endereços IP      | Portas Abertas
@@ -206,11 +206,11 @@ end
 ```
 Na gravura a seguir pode-se ver onde encontrar o modulo no Metasploit Framework
 
-![imagem2](kio2.png)
+![imagem2](https://github.com/Pre4ch3r/blog/blob/master/_posts/kioptrix1/kio2.png?raw=true)
 
 Na gravura a seguir pode-se ver como usar a ferramenta para explorar a falha e obter acesso root logo de primeira.
 
-![imagem3](kio3.png)
+![imagem3](https://github.com/Pre4ch3r/blog/blob/master/_posts/kioptrix1/kio3.png?raw=true)
 
 ## Pós exploração
 
