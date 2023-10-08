@@ -1,7 +1,7 @@
 ---
 title: "Vulnhub Kioptrix level 1"
-author: ["Pr3ach3r"]
-date: "2023-10-06"
+layout: post
+categories: ctf, vulnhub
 ---
 # Kioptrix level 1 Walkthrough
 
@@ -11,9 +11,11 @@ Esta foi minha primeiríssima máquina que consegui obter o root. O processo foi
 Essa máquina é considerada fácil e o processo é bem linear.
 A seguir, resumo o passo a passo para obter o root do sistema:
 
-**IP da empresa**
+**IP da máquina**
 
 10.0.2.18
+
+Usando a ferramenta **Netdiscover** analisamos os IPs na nossa rede interna. Lembrando que máquinas do *vulnhub* são feitas para serem laboratórios locais.
 
 ## Enumeração de serviços
 
@@ -29,7 +31,9 @@ Endereços IP      | Portas Abertas
 
 ## Exploração
 
-Nessa fase, exploro as falhas de segurança nos serviços vulneráveis. 
+Nessa fase, exploro as falhas de segurança nos serviços vulneráveis.
+
+Ao procurar no google sobre a versão do *smb*, percebo que ela está desatualizada e vulnerável a um exploit que pode ser usado no **metasploit**.
 
 **Vulnerabilidade:** Trans2Open Buffer Overflow 
 
@@ -218,6 +222,8 @@ Não foi necessário nenhum passo adicional, visto já obter acesso root já na 
 
 # Considerações finais
 
-Como qualquer coisa na vida, o começo é sempre doloroso, porém com o tempo tudo vai ficando natural e se torna mais fácil. Nessa primeira máquina aprendi a fazer pesquisa no google de uma maneira mais focada nas vulnerabilidades. E também aprendi que é prerigoso deixar um serviço desatualizado rodando no servidor.
+Como qualquer coisa na vida, o começo é sempre doloroso, porém com o tempo tudo vai ficando natural e se torna mais fácil. Nessa primeira máquina aprendi a fazer pesquisa no google de uma maneira mais focada nas vulnerabilidades. Quando ainda não se tem prática, você acaba tentando explorar serviços que não vão ser tão facilmente violados. Mas isso faz parte do aprendizao. Se assim como eu você também frita seu cérebro com máquinas aparentemente fáceis, não desanime.É apenas uma questão de tempo até conseguir seu primeiro root sem ajuda de write ups. Não tenha vergonha de usar essas ajudas em seu aprendizado, porque isso acelera sua evolução.Também aprendi que é prerigoso deixar um serviço desatualizado rodando no servidor. Para quem quer ser um desenvolvedor, estabelecer uma política de patches é essencial.
+
+Espero que tenha gostado de acompanhar esse primeiro write up. Em breve haverá mais da série Kioptrix. Até a próxima.
 
 
