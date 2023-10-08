@@ -1,6 +1,7 @@
 ---
 title: "Vulnhub Kioptrix level 2"
 layout: post
+author: Pr34ch3r
 categories: ctf, vulnhub
 ---
 # Kioptrix level 2 Walkthrough
