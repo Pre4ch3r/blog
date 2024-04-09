@@ -5,3 +5,13 @@
 Gemfile.lock
 _site
 *.gem
+_data/font-awesome
+_includes
+_layouts
+_sass
+assets
+404.html
+Gemfile 
+README.md
+UNLICENSE.txt
+_config.yml
