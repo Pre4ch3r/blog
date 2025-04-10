@@ -101,7 +101,7 @@ Nessa fase uso as informações obtidas para se aproveitar de vulnerabilidades e
 
 Primeiramente, ao acessar a url do site 10.0.2.15/index.php, encontramos uma página de login, como pode-se ver na gravura a seguir:
 
-![página de login](https://raw.githubusercontent.com/Pre4ch3r/blog/master/_posts/kioptrix_2/k2-0.png)
+![página de login](Pre4ch3r/blog/assets/images/kioptrix_2_image/k2-0.png)
 
 Rodando a ferramenta sqlmap, verifiquei se a página tinha vulnerabilidade a ataques de SQL injection. O sqlmap retornou que o formulário de login era vulnerável a ataques *booleanos*, ou seja, condicionais de verdadeiro ou falso. Na gravura a seguir vemos uma amostra do resultado:
 
