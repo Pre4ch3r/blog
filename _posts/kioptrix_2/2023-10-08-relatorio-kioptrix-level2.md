@@ -6,7 +6,7 @@ categories: ctf, vulnhub
 ---
 # Kioptrix level 2 Walkthrough
 
-![teste](/blog/assets/k2-0.png)
+![teste](/blog/assets/images/k2-0.png)
 
 ## Introdução
 
