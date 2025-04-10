@@ -1,9 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.2.2"
-
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+gem "github-pages", group: :jekyll_plugins do 
+  # Use the latest version of GitHub Pages
+  gem "github-pages", "~> 226", require: false
 end
 
-gem "webrick", "~> 1.9"
+

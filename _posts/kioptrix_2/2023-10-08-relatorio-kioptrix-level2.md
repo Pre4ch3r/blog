@@ -6,6 +6,8 @@ categories: ctf, vulnhub
 ---
 # Kioptrix level 2 Walkthrough
 
+![teste](/assets/k2-0.png)
+
 ## Introdução
 
 Essa foi a segunda máquina em que consegui obter root. Dessa vez tive menos trabalho pois segui o padrão que aprendi na primeira: Enumere o máximo que puder, use muito o google e daí explore as vulnerabilidades que encontrar.
