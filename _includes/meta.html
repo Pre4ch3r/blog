@@ -5,5 +5,16 @@
     <br>
     {%- assign date_format = site.date_format | default: "%B %d, %Y" -%}
     <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: date_format }}</time>
+    {%- assign words = include.post.content | number_of_words -%}
+    {%- assign minutes = words | divided_by:200 | plus:1 -%}
+    <span class="reading-time"> ⏱ {{ minutes }} min de leitura</span>
+    {% if include.post.tags %}
+    <p class="post-tags" style="margin-top: 0.5em;">
+      🏷️ Tags:
+      {% for tag in include.post.tags %}
+        <a href="#" style="text-decoration: none; background-color: #eee; color: #333; padding: 0.2em 0.5em; border-radius: 3px; margin-right: 0.3em;">#{{ tag }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
   </div>
 </header>

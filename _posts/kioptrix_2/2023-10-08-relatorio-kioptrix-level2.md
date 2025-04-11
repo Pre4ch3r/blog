@@ -2,7 +2,7 @@
 title: "Vulnhub Kioptrix level 2"
 layout: post
 author: Pr34ch3r
-categories: ctf, vulnhub
+tags: [vulnhub, kioptrix, walkthrough, ctf]
 ---
 ![teste](/blog/assets/images/kioptrix2/vulnhub-logo.png)
 
