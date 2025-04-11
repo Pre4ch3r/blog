@@ -2,6 +2,14 @@
 {% for post in posts %}
   <article>
     {% include meta.html post=post preview=true %}
+    <!-- Exibir a imagem se estiver definida -->
+    {% if post.image %}
+      <div class="post-image">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      </div>
+    {% endif %}
+
+    <!-- Exibir o resumo do post -->
     {{ post.excerpt }}
     <div class="more"><a href="{{ post.url | relative_url }}">read more</a></div>
   </article>

@@ -4,25 +4,27 @@ layout: post
 author: Pr34ch3r
 categories: ctf, vulnhub
 ---
+![banner](/blog/assets/images/kioptrix1/vulnhub-logo.png)
+
 # Kioptrix level 1 Walkthrough
 
 ## Introdução
 
-Esta foi minha primeiríssima máquina que consegui obter o root. O processo foi doloroso, porém, com alguma pesquisa é possível obter root facilmente.
+Esta foi minha primeiríssima máquina que consegui obter o **`root`**. O processo foi doloroso, porém, com alguma pesquisa é possível obter **`root`** facilmente.
 Essa máquina é considerada fácil e o processo é bem linear.
-A seguir, resumo o passo a passo para obter o root do sistema:
+A seguir, resumo o passo a passo para obter o **`root`** do sistema:
 
 **IP da máquina**
 
 10.0.2.18
 
-Usando a ferramenta **Netdiscover** analisamos os IPs na nossa rede interna. Lembrando que máquinas do *vulnhub* são feitas para serem laboratórios locais.
+Usando a ferramenta **`Netdiscover`** analisamos os IPs na nossa rede interna. Lembrando que máquinas do *vulnhub* são feitas para serem laboratórios locais.
 
 ## Enumeração de serviços
 
-Nessa fase fiz uma varredura usando a ferramenta NMAP, muito usada para fazer varreduras de portas. Note que o serviço na porta 139 parece ser o mais vulnerável.
+Nessa fase fiz uma varredura usando a ferramenta **`NMAP`**, muito usada para fazer varreduras de portas. Note que o serviço na porta 139 parece ser o mais vulnerável.
 
-![imagem1](https://raw.githubusercontent.com/Pre4ch3r/blog/master/_posts/kioptrix1/kio1.png)
+![imagem1](/blog/assets/images/kioptrix1/kio1.png)
 
 
 Endereços IP      | Portas Abertas
@@ -39,7 +41,8 @@ Ao procurar no google sobre a versão do *smb*, percebo que ela está desatualiz
 **Vulnerabilidade:** Trans2Open Buffer Overflow 
 
 **Explicação:**
-O estouro de buffer na função call_trans2open em trans2.c para Samba 2.2.x antes de 2.2.8a, 2.0.10 e versões anteriores de 2.0.x, e Samba-TNG antes de 0.3.2, permite que invasores remotos executem códigos arbitrários.
+
+>O estouro de buffer na função call_trans2open em trans2.c para Samba 2.2.x antes de 2.2.8a, 2.0.10 e versões anteriores de 2.0.x, e Samba-TNG antes de 0.3.2, permite que invasores remotos executem códigos arbitrários.
 
 **Solução:**
 Atualizar o serviço SAMBA para as versões mais recentes.
@@ -209,13 +212,13 @@ end
 
 
 ```
-Na gravura a seguir pode-se ver onde encontrar o modulo no Metasploit Framework
+Na gravura a seguir pode-se ver onde encontrar o modulo no **`Metasploit Framework`**
 
-![imagem2](https://raw.githubusercontent.com/Pre4ch3r/blog/master/_posts/kioptrix1/kio2.png)
+![imagem2](/blog/assets/images/kioptrix1/kio2.png)
 
 Na gravura a seguir pode-se ver como usar a ferramenta para explorar a falha e obter acesso root logo de primeira.
 
-![imagem3](https://raw.githubusercontent.com/Pre4ch3r/blog/master/_posts/kioptrix1/kio3.png)
+![imagem3](/blog/assets/images/kioptrix1/kio3.png)
 
 ## Pós exploração
 

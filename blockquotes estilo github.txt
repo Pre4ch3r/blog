@@ -1,0 +1,24 @@
+<blockquote class="note-box">
+  <strong>📝 Note:</strong>
+  Highlights information that users should take into account, even when skimming.
+</blockquote>
+
+<blockquote class="tip-box">
+  <strong>💡 Tip:</strong>
+  Optional information to help a user be more successful.
+</blockquote>
+
+<blockquote class="important-box">
+  <strong>🚨 Important:</strong>
+  Crucial information necessary for users to succeed.
+</blockquote>
+
+<blockquote class="warning-box">
+  <strong>⚠️ Warning:</strong>
+  Critical content demanding immediate user attention due to potential risks.
+</blockquote>
+
+<blockquote class="caution-box">
+  <strong>❗ Caution:</strong>
+  Negative potential consequences of an action.
+</blockquote>

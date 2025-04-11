@@ -4,13 +4,13 @@ layout: post
 author: Pr34ch3r
 categories: ctf, vulnhub
 ---
-# Kioptrix level 2 Walkthrough
+![teste](/blog/assets/images/kioptrix2/vulnhub-logo.png)
 
-![teste](/blog/assets/images/kioptrix2/k2-0.png)
+# Kioptrix level 2 Walkthrough
 
 ## Introdução
 
-Essa foi a segunda máquina em que consegui obter root. Dessa vez tive menos trabalho pois segui o padrão que aprendi na primeira: Enumere o máximo que puder, use muito o google e daí explore as vulnerabilidades que encontrar.
+Essa foi a segunda máquina em que consegui obter `root`. Dessa vez tive menos trabalho pois segui o padrão que aprendi na primeira: Enumere o máximo que puder, use muito o google e daí explore as vulnerabilidades que encontrar.
 
 Meu objetivo com esse walkthrough é praticar a documentação de *pentest*, pois no final das contas, o que importa para uma empresa ao contratar um pentest é ter um relatório bem escrito.
 
@@ -101,7 +101,7 @@ OS and Service detection performed. Please report any incorrect results at https
 
 Nessa fase uso as informações obtidas para se aproveitar de vulnerabilidades encontradas nesses serviços. Durante esse Pentest foi encontrada uma falha de SQL injection na página de login do site. A seguir pode-se ver o passo a passo da exploração:
 
-Primeiramente, ao acessar a url do site 10.0.2.15/index.php, encontramos uma página de login, como pode-se ver na gravura a seguir:
+Primeiramente, ao acessar a url do site `10.0.2.15/index.php`, encontramos uma página de login, como pode-se ver na gravura a seguir:
 
 ![página de login](/blog/assets/images/kioptrix2/k2-0.png)
 
@@ -112,8 +112,9 @@ Rodando a ferramenta sqlmap, verifiquei se a página tinha vulnerabilidade a ata
 **Vulnerabilidade:** SQL injection Boolean-Based
 
 **Explicação:** 
-Quando o código inserido pelo usuário não é apropriadamente sanitizado, um usuário mal intencionado pode injetar *queries sql*, que são comandos na linguagem do banco de dados. O servidor aceitará esses comandos como confiáveis e retornará ao hacker a informação solicitada. Esse é um dos ataques mais comuns, sendo listado no top 10 da OWASP.
-Um sql injection boolean-based abusa da lógica de parâmetros de verdadeiro e falso. 
+
+>📝 **NOTE**:<br><br>
+>Quando o código inserido pelo usuário não é apropriadamente sanitizado, um usuário mal intencionado pode injetar *queries sql*, que são comandos na linguagem do banco de dados. O servidor aceitará esses comandos como confiáveis e retornará ao hacker a informação solicitada. Esse é um dos ataques mais comuns, sendo listado no top 10 da OWASP. Um sql injection boolean-based abusa da lógica de parâmetros de verdadeiro e falso. 
 
 Exemplo: 
 
@@ -122,7 +123,7 @@ admin'or 1=1-- -
 
 ```
 
-Esse código diz que o banco de dados deve verificar a existência de um usuário chamado admin. Mas ao adicionar a aspa simples " ' ", o servidor passa a ler o restante do código como uma query sql. O próximo trecho diz que a condição para o servidor liberar o acesso ao usuário é se 1 for igual a 1. Como essa condição é verdadeira, o acesso é facilmente burlado.
+Esse código diz que o banco de dados deve verificar a existência de um usuário chamado `admin`. Mas ao adicionar a aspa simples " ' ", o servidor passa a ler o restante do código como uma query sql. O próximo trecho diz que a condição para o servidor liberar o acesso ao usuário é se 1 for igual a 1. Como essa condição é verdadeira, o acesso é facilmente burlado.
 
 **Solução:** Sanitizar todo input (entradas) feito pelo usuário. Outra solução é usar uma lista branca de caracteres especiais que são permitidos aos usuários. Caracteres proibidos são filtrados pelo servidor. Além disso, erros de servidor não devem ser retornados ao usuário.
 
@@ -165,7 +166,9 @@ Após usar o payload no formulário, encontrei a página seguinte:
 **Vulnerabilidade:** Remote Command Execution
 
 **Explicação:**
-Uma falha na hora de sanitizar o input do usuário pode permitir que este injete comandos de servidor diretamente no formulário web. O servidor retorna os resultados na pŕopria página web. Essa falha pode ser escalada por se criar um *reverse shell* para que o hacker possa interagir com o servidor remotamente.
+
+>📝 **NOTE**:<br><br>
+>Uma falha na hora de sanitizar o input do usuário pode permitir que este injete comandos de servidor diretamente no formulário web. O servidor retorna os resultados na pŕopria página web. Essa falha pode ser escalada por se criar um *reverse shell* para que o hacker possa interagir com o servidor remotamente.
 
 **Solução:** Filtrar comandos de servidor que forem passados pelo usuário.
 
@@ -298,10 +301,11 @@ Nessa fase procuro elevar os privilégios de usuário e manter acesso persistent
 **Vulnerabilidade:** CVE-2009-2698
 
 **Explicação:**
-A função udp_sendmsg na implementação do UDP em (1) net/ipv4/udp.c e (2) net/ipv6/udp.c no kernel do Linux antes de 2.6.19 permite que os usuários locais *obtenham privilégios* ou causem uma negação de serviço (desreferência de ponteiro NULL e falha do sistema) por meio de vetores que envolvem o sinalizador MSG_MORE e um soquete UDP.
+
+>📝 **NOTE**:<br><br>
+>A função udp_sendmsg na implementação do UDP em (1) net/ipv4/udp.c e (2) net/ipv6/udp.c no kernel do Linux antes de 2.6.19 permite que os usuários locais *obtenham privilégios* ou causem uma negação de serviço (desreferência de ponteiro NULL e falha do sistema) por meio de vetores que envolvem o sinalizador MSG_MORE e um soquete UDP.
 
 **Solução:** Atualizar o kernel para versões mais recentes.
-
 
 **Risco:** Crítico
 
@@ -331,7 +335,7 @@ sh-3.00# id
 uid=0(root) gid=0(root) groups=48(apache)
 
 ```
-Após mudar a senha do root usando o comando *passwd*, acessei o servidor via *ssh*. A gravura a seguir mostra o comando e acesso root ao servidor.
+Após mudar a senha do **`root`** usando o comando *passwd*, acessei o servidor via *ssh*. A gravura a seguir mostra o comando e acesso **`root`** ao servidor.
 
 ![pwned!](/blog/assets/images/kioptrix2/k2-6.png)
 
@@ -339,7 +343,7 @@ Após mudar a senha do root usando o comando *passwd*, acessei o servidor via *s
 
 Após todas as descobertas, podemos resumir os achados da seguinte forma:
 
-vulnerabilidades      | Risco
+**vulnerabilidades**      | **Risco**
 ----------------------|-----------------------
 2                     | Alto
 1                     | Crítico

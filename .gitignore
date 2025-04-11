@@ -6,9 +6,7 @@ Gemfile.lock
 _site
 *.gem
 _data/font-awesome
-_includes
 _layouts
-_sass
 404.html
 Gemfile 
 README.md
